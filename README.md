@@ -17,8 +17,8 @@ cookie for specified day. The example below shows how we'll execute your program
 
 ## Assumptions
 
-- If multiple cookies meet that criteria, please return all of them on separate lines.
-$ ./most_active_cookie cookie_log.csv -d 2018-12-08
+- If multiple cookies meet that criteria, please return all of them on separate lines.  
+$ ./most_active_cookie cookie_log.csv -d 2018-12-08  
 SAZuXPGUrfbcn5UA  
 4sMM2LxV07bPJzwf  
 fbcn5UAVanZf6UtG  
@@ -26,24 +26,21 @@ fbcn5UAVanZf6UtG
 ## Running Instructions
 
 To compile:
-~~~~~~~~~~~
-
+~~~
     make
-
+~~~
 
 To run tests:
-~~~~~~~~~~~~~
-
+~~~
     make clean grade
-
+~~~
 
 To see the results of one test (e.g. cookie_log):
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+~~~
     make clean cookie_log.test
-
+~~~
 
 To make the output less noisy:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+~~~
     make -s grade
+~~~
