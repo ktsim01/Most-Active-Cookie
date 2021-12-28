@@ -21,6 +21,7 @@ run: Makefile all
 	./most_active_cookie duplicate.csv -d 2018-12-11 > duplicate.out
 	./most_active_cookie empty.csv -d 2018-12-11 > empty.out
 	./most_active_cookie repetitive.csv -d 2018-12-11 > repetitive.out
+	./most_active_cookie no_matching_date.csv -d 2018-12-12 > no_matching_date.out
 
 ${TEST_DIFFS} : %.diff : Makefile run %.out %.ok
 	@echo "failed to diff" > $*.diff

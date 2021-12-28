@@ -32,7 +32,7 @@ To compile:
 
 To run tests:
 ~~~
-    make clean grade
+    make clean test
 ~~~
 
 To see the results of one test (e.g. cookie_log):
@@ -42,5 +42,5 @@ To see the results of one test (e.g. cookie_log):
 
 To make the output less noisy:
 ~~~
-    make -s grade
+    make -s test
 ~~~
