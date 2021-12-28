@@ -1,6 +1,6 @@
 CSTD = -std=c++11
 PROG = main.cpp
-CFLAGS = -g
+CFLAGS = -g -B
 CC = g++
 
 CSV_FILES=${sort ${wildcard *.csv}}
