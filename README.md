@@ -44,3 +44,5 @@ To make the output less noisy:
 ~~~
     make -s test
 ~~~
+
+The ok files are the expected output.
