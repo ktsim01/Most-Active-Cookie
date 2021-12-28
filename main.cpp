@@ -52,7 +52,6 @@ int main(int argc, char *argv[])
 
         deque<string> input_processed;
 
-        // process inputfile without comments
         for (string line; getline(in, line);)
         {
             if (line.empty())
@@ -68,6 +67,8 @@ int main(int argc, char *argv[])
 
         char *time, *temp;
         int max_count = 0;
+
+        // process the csv file and store the frequency in a Hashmap
         for (int i = 0; i < input_processed.size(); ++i)
         {
             cookie_name = strtok((char *)input_processed[i].c_str(), ",");
@@ -81,6 +82,8 @@ int main(int argc, char *argv[])
                 max_count = max(max_count, cookie_map[(string)cookie_name]);
             }
         }
+
+        // printing the results in the order presented in the csv file
 
         for (int i = 0; i < insertOrder.size(); ++i)
         {
