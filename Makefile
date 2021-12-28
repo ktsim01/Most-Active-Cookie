@@ -16,10 +16,11 @@ ${PROG} : Makefile
 	@-rm -f $*
 	${CC} ${CFLAGS} ${CSTD} main.cpp -o most_active_cookie
 
-run: all
+run: Makefile all
 	./most_active_cookie cookie_log.csv -d 2018-12-08 > cookie_log.out
 	./most_active_cookie duplicate.csv -d 2018-12-11 > duplicate.out
 	./most_active_cookie empty.csv -d 2018-12-11 > empty.out
+	./most_active_cookie repetitive.csv -d 2018-12-11 > repetitive.out
 
 ${TEST_DIFFS} : %.diff : Makefile run %.out %.ok
 	@echo "failed to diff" > $*.diff
@@ -35,7 +36,9 @@ ${TEST_TESTS} : %.test : Makefile %.result
 test: ${TEST_TESTS};
 
 clean:
-	-rm -rf *.out *.diff *.err *.result *.d *.o most_active_cookie  most_active_cookie.dSYM *~
+	-rm -rf *.out *.diff *.err *.result *.d *.o most_active_cookie *~
+
+.PHONY: all run test clean
 
 -include *.d
 

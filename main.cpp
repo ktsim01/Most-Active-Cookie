@@ -5,7 +5,7 @@
 #include <string>
 #include <cstring>
 #include <vector>
-#include <map>
+#include <unordered_map>
 #include <iterator>
 using namespace std;
 
@@ -63,7 +63,8 @@ int main(int argc, char *argv[])
         in.close();
 
         char *cookie_name, *cookie_timestamp;
-        map<char *, int> cookie_map;
+        unordered_map<string, int> cookie_map;
+        vector<string> insertOrder;
 
         char *time, *temp;
         int max_count = 0;
@@ -75,20 +76,17 @@ int main(int argc, char *argv[])
             time = strtok(NULL, "T");
             if (strcmp(date, cookie_timestamp)==0)
             {
-                cookie_map[cookie_name]++;
-                max_count = max(max_count, cookie_map[cookie_name]);
+                cookie_map[(string)cookie_name]++;
+                if(cookie_map[(string)cookie_name]==1) insertOrder.push_back((string)cookie_name);
+                max_count = max(max_count, cookie_map[(string)cookie_name]);
             }
-            // printf("%s : %s T %s\n", cookie_name, cookie_timestamp, time);
         }
-        
-        map<char *, int>::iterator it = cookie_map.begin();
 
-        while (it != cookie_map.end())
+        for (int i = 0; i < insertOrder.size(); ++i)
         {
-            if(it->second==max_count){
-                printf("%s\n", it->first);
+            if(cookie_map[insertOrder[i]]==max_count){
+                printf("%s\n", insertOrder[i].c_str());
             }
-            it++;
         }
         return 0;
     }
